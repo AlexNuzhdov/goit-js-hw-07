@@ -32,10 +32,6 @@ function creatGallary(galleryItems) {
  function findimgAlt(event) {
   return console.log(event.target.alt);
  };
-
-
-
-
    let gallery = new SimpleLightbox('.gallery a', {
    captionData: 'alt',
    captionType: 'attr',
