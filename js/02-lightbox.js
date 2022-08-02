@@ -1,8 +1,6 @@
 import { galleryItems } from './gallery-items.js';
 // Change code below this line
 
-console.log(galleryItems);
-
 const imagesGallary = document.querySelector(".gallery");
 const  imagesMarkup = creatGallary(galleryItems);
 imagesGallary.insertAdjacentHTML('beforeend', imagesMarkup);
@@ -23,15 +21,10 @@ function creatGallary(galleryItems) {
       </div> 
       `;
     })
-    .join('')
+    .join('');
 
-}
+};
 
- imagesGallary.addEventListener('сlick', findimgAlt)
-
- function findimgAlt(event) {
-  return console.log(event.target.alt);
- };
    let gallery = new SimpleLightbox('.gallery a', {
    captionData: 'alt',
    captionType: 'attr',

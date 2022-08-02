@@ -4,6 +4,7 @@ import { galleryItems } from './gallery-items.js';
 const imagesGallary = document.querySelector(".gallery");
 const  imagesMarkup = creatGallary(galleryItems);
 imagesGallary.insertAdjacentHTML('beforeend', imagesMarkup);
+imagesGallary.addEventListener('click', onImgClick);
 
 
 function creatGallary(galleryItems) {
@@ -21,42 +22,69 @@ function creatGallary(galleryItems) {
       </div> 
       `;
     })
-    .join('')
+    .join('');
 
-}
-
-    imagesGallary.addEventListener('click', event => {  
-        event.preventDefault();
+};
+  
+    function onImgClick(event) {  
+    event.preventDefault();
         if (event.target.nodeName !== 'IMG') {
             return
-        }
-
+        };
         const original = event.target.dataset.source;
-        console.log (original);
 
-        const instance = basicLightbox.create (`
-            <img src="${original}" width="1280" height="600">
-        `)
-        instance.show()
-
-        imagesGallary.addEventListener('keydown', event => {
-            if (event.key === 'Escape') {
-                instance.close()
+        const onEscapePress = event => { 
+            if (event.code === 'Escape') {
+              instance.close();
             }
-        })
-
-
-    });
-
+          };
+        
+          const instance = basicLightbox.create(`
+          <img src="${original}" width="1280" height="600">`,
+          {
+            onShow: (instance) => 
+            document.addEventListener('keydown',onEscapePress),
+            onClose: (instance) => 
+            document.removeEventListener('keydown', onEscapePress),
+          });
+          
+          instance.show();
+        
+       };
+        
       
-       
+
+
+        
+            
 
        
- 
-  
+        
+
+        
 
 
+   
 
 
+    
+        // const onEscapePress = event => {
+        //     if (event.code === 'Escape') {
+        //         instance.close()
+        //     }
+        // };
 
+        
+        // const instance = basicLightbox.create (`
+        //     <img src="${original}" width="1280" height="600">
+        // `) {
 
+        //     onShow: (instance) => {
+        //         document.addEventListener('keydown', onEscapePress);
+        //     },
+        //     onClose: (instance) => {
+        //         document.removeEventListener('keydown', onEscapePress);
+        //     }
+        //   };
+          
+        //  instance.show()
