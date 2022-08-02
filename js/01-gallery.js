@@ -68,23 +68,4 @@ function creatGallary(galleryItems) {
 
 
     
-        // const onEscapePress = event => {
-        //     if (event.code === 'Escape') {
-        //         instance.close()
-        //     }
-        // };
-
-        
-        // const instance = basicLightbox.create (`
-        //     <img src="${original}" width="1280" height="600">
-        // `) {
-
-        //     onShow: (instance) => {
-        //         document.addEventListener('keydown', onEscapePress);
-        //     },
-        //     onClose: (instance) => {
-        //         document.removeEventListener('keydown', onEscapePress);
-        //     }
-        //   };
-          
-        //  instance.show()
+    
